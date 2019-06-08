@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "ir.radicalcode.app.bmi"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+ext {
+    gmsPlayServicesVersion = '16.+'
+    supportLibraryVersion = '1.0.2'
+    supportLibraryVersionX = '1.0.0'
+    room_version = "2.1.0-beta01"
+    archLifecycleVersion = '2.0.0'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout-solver:1.1.3'
+    implementation "androidx.legacy:legacy-support-v4:$supportLibraryVersionX"
+    implementation "com.google.android.material:material:$supportLibraryVersionX"
+    implementation "androidx.appcompat:appcompat:$supportLibraryVersion"
+    implementation "androidx.cardview:cardview:$supportLibraryVersionX"
+    implementation "androidx.recyclerview:recyclerview:$supportLibraryVersionX"
+    implementation 'com.github.apl-devs:appintro:v4.1.0'
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
+    implementation 'com.jakewharton:butterknife:8.0.1'
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.0.1"
+    implementation 'com.github.yalantis:ucrop:2.2.2'
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+}

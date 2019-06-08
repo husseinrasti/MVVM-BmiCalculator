@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/two_fragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_selector"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:textDirection="rtl"
+    tools:context=".view.fragment.IntroAddInfoBmiFragment">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/img_dimen_sm"
+        android:layout_height="@dimen/img_dimen_sm"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/image_desc"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_edit"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:hint="@string/enter_age"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/enter_gender"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ageLayout"/>
+
+    <RadioGroup
+        android:id="@+id/radioGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:divider="@drawable/ic_devider_line"
+        android:gravity="center"
+        android:minHeight="64dp"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtGender">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio_male"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio_female"/>
+
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weightLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/enter_weight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/spinnerWeightUnit"
+        app:layout_constraintTop_toBottomOf="@id/radioGender">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_edit"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinnerWeightUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:entries="@array/weightArray"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/weightLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGender"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/heightLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:hint="@string/enter_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/spinnerHeightUnit"
+        app:layout_constraintTop_toBottomOf="@id/weightLayout">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_edit"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/heightInchLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/spinnerHeightUnit"
+        app:layout_constraintTop_toBottomOf="@id/heightLayout">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtHeightInch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_edit"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:hint="@string/enter_inch"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinnerHeightUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/heightArray"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@id/heightLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerWeightUnit"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

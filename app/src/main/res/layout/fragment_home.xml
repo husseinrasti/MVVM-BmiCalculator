@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/fragment_home"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gauge="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_87"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/container_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ir.radicalcode.app.bmi.view.customviews.GaugeView
+                android:id="@+id/gaugeView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:isScrollContainer="false"
+                gauge:innerCircleColor="@color/colorAccent"
+                gauge:needleHeight="0.40"
+                gauge:needleWidth="0.030"
+                gauge:outerCircleColor="@color/white_54"
+                gauge:rangeColors="@array/rangeColors"
+                gauge:rangeValues="@array/ranges"
+                gauge:scaleEndValue="50"
+                gauge:scaleStartValue="0"
+                gauge:showInnerRim="false"
+                gauge:showOuterRim="false"
+                gauge:showOuterShadow="false"
+                gauge:showRanges="true"/>
+
+            <androidx.appcompat.widget.FitWindowsLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="160dp"
+                android:background="@color/white"
+                android:gravity="center_vertical|center"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/txtInfoResultBmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/txtUserInfo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="0dp"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="60sp"/>
+
+                <TextView
+                    android:id="@+id/txtUserInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/gaugeView"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/text_border"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center_vertical|center"
+                    android:padding="10dp"
+                    android:text="@string/details"
+                    android:textSize="16sp"
+                    android:textStyle="normal|bold"/>
+
+            </androidx.appcompat.widget.FitWindowsLinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/suggestLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTitleInfoResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/result_details"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:id="@+id/imgExpression"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/expression_desc"/>
+
+            <TextView
+                android:id="@+id/txtInfoSuggest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:textSize="24sp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

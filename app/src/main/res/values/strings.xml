@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">حسابگر BMI</string>
+    <string name="app_name_fa_title">حسابگر</string>
+    <string name="app_name_en">BMI Calculator</string>
+    <string name="app_name_full">حسابگر شاخص توده بدن</string>
+    <string name="action_settings">تنظیمات</string>
+    <string name="app_thanks_note">از اینکه این اپ را دانلود کردید متشکرم!</string>
+    <string name="app_intro">مقدمه برنامه</string>
+
+    <string name="str_bmi">شاخص توده بدن</string>
+
+    <string name="image_desc">Logo image for Bmi calculator</string>
+    <string name="slide_one_subhead">حسابگر BMI</string>
+    <string name="start_text">شروع محاسبه</string>
+    <string name="start_text2">شاخص توده بدنی شما</string>
+
+    <string name="app_title">حسابگر آسان</string>
+    <string name="str_history">تاریخچه سلامت شما</string>
+    <string name="str_chart">نمودار سلامت شما</string>
+
+    <string name="nav_item_share">ارسال نرم افزار</string>
+    <string name="nav_item_software">برنامه</string>
+    <string name="nav_item_star">5 ستاره</string>
+    <string name="nav_sub_menu_developer">توسعه دهنده</string>
+    <string name="nav_sub_menu_about">درباره</string>
+    <string name="nav_sub_menu_app">نرم افزار های دیگر</string>
+    <string name="nav_sub_menu_ads">تبلیغات</string>
+    <string name="nav_sub_menu_help">راهنما</string>
+
+    <string name="str_label_crop_activity">ویرایش تصویر</string>
+    <string name="enter_name">نام</string>
+    <string name="enter_family">نام خانوادگی</string>
+    <string name="enter_age">سن</string>
+    <string name="enter_gender">جنسیت</string>
+    <string name="enter_weight">وزن</string>
+    <string name="enter_height">قد</string>
+    <string name="enter_inch">اینج</string>
+    <string name="final_bmi_text">محاسبات شما</string>
+    <string name="final_bmi_text2">نتیجه شاخص توده بدنی</string>
+
+    <string name="tab_image">Tab Image</string>
+    <string name="age">سن شما </string>
+    <string name="radio_male">مرد</string>
+    <string name="radio_female">زن</string>
+    <string name="calculate">محاسبه</string>
+    <string name="weight">وزن </string>
+    <string name="height">قد </string>
+
+    <string name="kg">سانتیمتر</string>
+    <string name="lb">فوت</string>
+
+
+    <string name="ft_in">فوت+اینچ</string>
+    <string name="cm">سانتیمتر</string>
+    <string name="ft">فوت</string>
+    <string name="inch">اینچ</string>
+
+    <string name="listAge">سن</string>
+    <string name="listresult">نتیجه</string>
+
+
+    <string name="age_policy_error">لطفا سن خود را وارد کنید.</string>
+    <string name="gender_policy_error">لطفا جنسیت خود را انتخاب کنید.</string>
+    <string name="weight_policy_error">لطفا وزن خود را وارد کنید.</string>
+    <string name="height_policy_error">لطفا قد خود را وارد کنید.</string>
+    <string name="name_policy_error">لطفا نام خود را وارد کنید.</string>
+    <string name="pic_profile_policy_error">لطفا یک عکس انتخاب کنید.</string>
+
+    <string name="title_activity_main">خوش آمدید</string>
+    <string name="roboto_light">Roboto Light</string>
+
+    <string name="details">جزییات شما </string>
+    <string name="msg_add">اطلاعات جدید را وارد کنید</string>
+    <string name="result_details">نتایج شاخص توده بدنی</string>
+    <string name="expression_desc">تصویر بیان شاخص توده بدنی شما</string>
+
+    <string name="cancel_btn">انصراف</string>
+    <string name="calculate_btn">محاسبه</string>
+    <string name="about">درباره</string>
+    <string name="about_text">ساخته شده توسط : حسین راستی</string>
+    <string name="build_version">ورژن: 1.0</string>
+    <string name="email">teachcode.ir@gmail.com</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_toast_back">لطفا یک بار دیگر کلید برگشت را بزنید!</string>
+    <string name="msg_thanks"> از اینکه این برنامه را انتخاب کردید، سپاسگذاریم! </string>
+    <string name="str_sample_adapter_date">27/02/2019</string>
+    <string name="str_sample_adapter_years">27 سال</string>
+    <string name="str_sample_adapter_result">28.4</string>
+    <string name="runtime_permissions_txt">لطفا برای گرفتن عکس دسترسی لازم را اعمال کنید</string>
+    <string name="str_btn_snackbar_enable">مجاز</string>
+    <string name="toast_image_intent_null">گزینه انتخاب تصویر یافت نشده است!</string>
+    <string name="lbl_set_profile_photo">انتخاب تصویر از</string>
+    <string name="lbl_take_camera_picture">دوربین</string>
+    <string name="lbl_choose_from_gallery">گالری</string>
+
+    <string name="str_menu_settings">تنظیمات</string>
+    <string name="str_menu_history">تاریخچه</string>
+    <string name="str_menu_home">خانه</string>
+    <string name="str_menu_more">بیشتر</string>
+
+    <string name="share_text">\nشما میتوانید بهترین برنامه محاسبه کننده شاخص توده بدن راه از لینک زیر در کافه بازار دانلود کنید.</string>
+    <string name="share_using">اشتراک اپ</string>
+
+    <string name="str_toast_install_market">برنامه کافه بازار در گوشی شما نصب نیست لطفا آن را نصب کنید!</string>
+
+</resources>

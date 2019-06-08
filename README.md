@@ -1,8 +1,8 @@
-# MVVM-BmiCalculator
+# BmiCalculator
 ![logo](https://raw.githubusercontent.com/husseinrasti/MVVM-BmiCalculator/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png)
 
 # Summary
-Bmi Calculator (Body Mass Index)
+Bmi Calculator (Body Mass Index) , Developed with MVVM architecture and Repository Pattern
 
 # Contributing
 Any help, including feedback, is highly appriciated. I have just started out with Android and I’m relatively new to app development.

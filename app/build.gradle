@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.github.apl-devs:appintro:v4.1.0'
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
     implementation 'com.jakewharton:butterknife:8.0.1'

@@ -20,7 +20,7 @@
 
     <string name="nav_item_share">ارسال نرم افزار</string>
     <string name="nav_item_software">برنامه</string>
-    <string name="nav_item_star">5 ستاره</string>
+    <string name="nav_item_star">نظر</string>
     <string name="nav_sub_menu_developer">توسعه دهنده</string>
     <string name="nav_sub_menu_about">درباره</string>
     <string name="nav_sub_menu_app">نرم افزار های دیگر</string>
@@ -102,7 +102,7 @@
     <string name="str_menu_more">بیشتر</string>
     <string name="str_menu">منو</string>
 
-    <string name="share_text">\nشما میتوانید بهترین برنامه محاسبه کننده شاخص توده بدن راه از لینک زیر در کافه بازار دانلود کنید.</string>
+    <string name="share_text">\nشما میتوانید بهترین برنامه محاسبه کننده شاخص توده بدن را از لینک زیر در کافه بازار دانلود کنید.</string>
     <string name="share_using">اشتراک اپ</string>
 
     <string name="str_toast_install_market">برنامه کافه بازار در گوشی شما نصب نیست لطفا آن را نصب کنید!</string>

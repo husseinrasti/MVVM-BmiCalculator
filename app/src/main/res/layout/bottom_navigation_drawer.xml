@@ -7,16 +7,128 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <!-- navigation view -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
+    <TextView
+        android:id="@+id/txtTitleApp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="4dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/nav_item_software"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/drawer"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/txtItemRate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/nav_item_star"
+        android:textColor="@color/gray_dark"
+        app:layout_constraintBottom_toTopOf="@id/txtItemShare"
+        app:layout_constraintEnd_toStartOf="@id/imgItemRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleApp"/>
 
+    <ImageView
+        android:id="@+id/imgItemRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/image_desc"
+        android:src="@drawable/ic_stars"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleApp"/>
+
+    <TextView
+        android:id="@+id/txtItemShare"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/nav_item_share"
+        android:textColor="@color/gray_dark"
+        app:layout_constraintBottom_toTopOf="@id/txtTitleDeveloper"
+        app:layout_constraintEnd_toStartOf="@id/imgItemShare"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtItemRate"/>
+
+    <ImageView
+        android:id="@+id/imgItemShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/image_desc"
+        android:src="@drawable/ic_shares"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgItemRate"/>
+
+    <TextView
+        android:id="@+id/txtTitleDeveloper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/nav_sub_menu_developer"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtItemShare"/>
+
+    <TextView
+        android:id="@+id/txtItemAbout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/nav_sub_menu_about"
+        android:textColor="@color/gray_dark"
+        app:layout_constraintEnd_toStartOf="@id/imgItemAbout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleDeveloper"/>
+
+    <ImageView
+        android:id="@+id/imgItemAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/image_desc"
+        android:src="@drawable/ic_about"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtTitleDeveloper"/>
+
+    <TextView
+        android:id="@+id/txtItemApps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/nav_sub_menu_app"
+        android:textColor="@color/gray_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgItemApps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtItemAbout"/>
+
+    <ImageView
+        android:id="@+id/imgItemApps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/image_desc"
+        android:src="@drawable/ic_app"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgItemAbout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

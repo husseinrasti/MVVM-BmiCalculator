@@ -9,13 +9,15 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ir.radicalcode.app.bmi.R;
 import ir.radicalcode.app.bmi.utils.Config;
 import ir.radicalcode.app.bmi.utils.Utils;
+import ir.radicalcode.app.bmi.view.activity.AboutActivity;
 
 public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
 
@@ -60,57 +62,7 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         View contentView = View.inflate( getContext() , R.layout.bottom_navigation_drawer , null );
         dialog.setContentView( contentView );
 
-        NavigationView navigationView = contentView.findViewById( R.id.navigation_view );
-
-        //implement navigation menu item click event
-        navigationView.setNavigationItemSelectedListener( item -> {
-            switch ( item.getItemId() ) {
-                case R.id.navigation_item_help: {
-//                    Intent intent = new Intent( getActivity() , HelpActivity.class );
-//                    startActivity( intent );
-                    break;
-                }
-                case R.id.navigation_item_about: {
-//                    Intent intent = new Intent( getActivity() , AboutActivity.class );
-//                    startActivity( intent );
-                    break;
-                }
-                case R.id.navigation_item_share: {
-                    String data = getResources().getString( R.string.share_text ) + "\n"
-                            + "http://cafebazaar.ir/app/?id=" + Config.PACKAGE_NAME + "&ref=share";
-                    Intent intent = new Intent( Intent.ACTION_SEND );
-                    intent.setType( "text/plain" );
-                    intent.putExtra( Intent.EXTRA_SUBJECT , data );
-                    intent.putExtra( Intent.EXTRA_TITLE , getResources().getString( R.string.app_name ) );
-                    intent.putExtra( Intent.EXTRA_TEXT , data );
-                    startActivity( Intent.createChooser( intent , getResources().getString( R.string.share_using ) ) );
-                    break;
-                }
-                case R.id.navigation_item_rate: {
-                    if ( Utils.isPackageExisted( getContext() , "com.farsitel.bazaar" ) ) {
-                        Intent intent = new Intent( Intent.ACTION_EDIT );
-                        intent.setData( Uri.parse( "bazaar://details?id=" + Config.PACKAGE_NAME ) );
-                        intent.setPackage( "com.farsitel.bazaar" );
-                        startActivity( intent );
-                    } else {
-                        Toast.makeText( getContext() , getString( R.string.str_toast_install_market ) , Toast.LENGTH_LONG ).show();
-                    }
-                    break;
-                }
-                case R.id.navigation_item_app: {
-                    if ( Utils.isPackageExisted( getContext() , "com.farsitel.bazaar" ) ) {
-                        Intent intent = new Intent( Intent.ACTION_VIEW );
-                        intent.setData( Uri.parse( "bazaar://collection?slug=by_author&aid=" + Config.DEVELOPER_ID ) );
-                        intent.setPackage( "com.farsitel.bazaar" );
-                        startActivity( intent );
-                    } else {
-                        Toast.makeText( getContext() , getString( R.string.str_toast_install_market ) , Toast.LENGTH_LONG ).show();
-                    }
-                    break;
-                }
-            }
-            return false;
-        } );
+        ButterKnife.bind( this , contentView );
 
         //Set the coordinator layout behavior
         CoordinatorLayout.LayoutParams params = ( CoordinatorLayout.LayoutParams ) ( ( View ) contentView.getParent() ).getLayoutParams();
@@ -122,4 +74,53 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         }
     }
 
+    @OnClick({ R.id.imgItemAbout , R.id.txtItemAbout ,
+            R.id.imgItemShare , R.id.txtItemShare ,
+            R.id.imgItemRate , R.id.txtItemRate ,
+            R.id.imgItemApps , R.id.txtItemApps })
+    public void onItemNavClick( View view ) {
+        switch ( view.getId() ) {
+            case R.id.imgItemAbout:
+            case R.id.txtItemAbout: {
+                startActivity( new Intent( getActivity() , AboutActivity.class ) );
+                break;
+            }
+            case R.id.imgItemShare:
+            case R.id.txtItemShare: {
+                String data = getResources().getString( R.string.share_text ) + "\n"
+                        + "http://cafebazaar.ir/app/?id=" + Config.PACKAGE_NAME + "&ref=share";
+                Intent intent = new Intent( Intent.ACTION_SEND );
+                intent.setType( "text/plain" );
+                intent.putExtra( Intent.EXTRA_SUBJECT , data );
+                intent.putExtra( Intent.EXTRA_TITLE , getResources().getString( R.string.app_name ) );
+                intent.putExtra( Intent.EXTRA_TEXT , data );
+                startActivity( Intent.createChooser( intent , getResources().getString( R.string.share_using ) ) );
+                break;
+            }
+            case R.id.imgItemRate:
+            case R.id.txtItemRate: {
+                if ( Utils.isPackageExisted( getContext() , "com.farsitel.bazaar" ) ) {
+                    Intent intent = new Intent( Intent.ACTION_EDIT );
+                    intent.setData( Uri.parse( "bazaar://details?id=" + Config.PACKAGE_NAME ) );
+                    intent.setPackage( "com.farsitel.bazaar" );
+                    startActivity( intent );
+                } else {
+                    Toast.makeText( getContext() , getString( R.string.str_toast_install_market ) , Toast.LENGTH_LONG ).show();
+                }
+                break;
+            }
+            case R.id.imgItemApps:
+            case R.id.txtItemApps: {
+                if ( Utils.isPackageExisted( getContext() , "com.farsitel.bazaar" ) ) {
+                    Intent intent = new Intent( Intent.ACTION_VIEW );
+                    intent.setData( Uri.parse( "bazaar://collection?slug=by_author&aid=" + Config.DEVELOPER_ID ) );
+                    intent.setPackage( "com.farsitel.bazaar" );
+                    startActivity( intent );
+                } else {
+                    Toast.makeText( getContext() , getString( R.string.str_toast_install_market ) , Toast.LENGTH_LONG ).show();
+                }
+                break;
+            }
+        }
+    }
 }

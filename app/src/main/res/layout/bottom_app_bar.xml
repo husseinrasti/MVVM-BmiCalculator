@@ -20,12 +20,14 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_more_selector"/>
+            android:src="@drawable/ic_more_selected"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/str_menu_more"/>
+
+            android:text="@string/str_menu"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -43,12 +45,13 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_settings_selector"/>
+            android:src="@drawable/ic_article"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/str_menu_settings"/>
+            android:text="@string/str_menu_article"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -64,12 +67,13 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_history_selector"/>
+            android:src="@drawable/ic_history_selected"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/str_menu_history"/>
+            android:text="@string/str_menu_history"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -85,12 +89,13 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_home_selector"/>
+            android:src="@drawable/ic_home_selected"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/str_menu_home"/>
+            android:text="@string/str_menu_home"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 

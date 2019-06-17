@@ -95,10 +95,12 @@
     <string name="lbl_take_camera_picture">دوربین</string>
     <string name="lbl_choose_from_gallery">گالری</string>
 
+    <string name="str_menu_article">آموزش</string>
     <string name="str_menu_settings">تنظیمات</string>
     <string name="str_menu_history">تاریخچه</string>
     <string name="str_menu_home">خانه</string>
     <string name="str_menu_more">بیشتر</string>
+    <string name="str_menu">منو</string>
 
     <string name="share_text">\nشما میتوانید بهترین برنامه محاسبه کننده شاخص توده بدن راه از لینک زیر در کافه بازار دانلود کنید.</string>
     <string name="share_using">اشتراک اپ</string>

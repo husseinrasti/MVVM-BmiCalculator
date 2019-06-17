@@ -17,6 +17,6 @@ public class ThanksActivity extends AppCompatActivity {
 
         Font.getInstance( this ).iranSans( findViewById( R.id.txtThanks ) );
 
-        new Handler().postDelayed( this::finish , 2000 );
+        new Handler().postDelayed( this::finish , 1500 );
     }
 }

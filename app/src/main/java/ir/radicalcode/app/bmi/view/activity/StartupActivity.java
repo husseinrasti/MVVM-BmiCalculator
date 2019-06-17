@@ -78,6 +78,10 @@ public class StartupActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        if ( viewPager.getCurrentItem() != 3 ) {
+            viewPager.setCurrentItem( 3 );
+            return;
+        }
         startActivity( new Intent( this , ThanksActivity.class ) );
         finish();
     }

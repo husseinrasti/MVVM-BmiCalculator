@@ -107,4 +107,10 @@
 
     <string name="str_toast_install_market">برنامه کافه بازار در گوشی شما نصب نیست لطفا آن را نصب کنید!</string>
 
+    <string name="txt_about_app_fa">نرم افزار محاسبگر شاخص توده بدن نسخه 2.0</string>
+    <string name="txt_about_app_en">BMI Calculator v 2.0</string>
+    <string name="txt_about_author">طراح و برنامه نویس: حسین راستی</string>
+    <string name="txt_about_email">ایمیل: teachcode.ir@gmail.com</string>
+    <string name="txt_about_feedback">پذیرای نظرات و پیشنهادات شما دوستان عزیز می باشیم</string>
+
 </resources>

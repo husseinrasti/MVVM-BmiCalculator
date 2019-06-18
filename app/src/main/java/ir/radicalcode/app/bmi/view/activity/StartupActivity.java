@@ -94,7 +94,6 @@ public class StartupActivity extends AppCompatActivity {
             if ( !isFirstStart ) {
                 Intent intro = new Intent( StartupActivity.this , IntroActivity.class );
                 startActivity( intro );
-                sharedPrefViewModel.setStateFirstStart( true );
                 finish();
             }
         } ).start();

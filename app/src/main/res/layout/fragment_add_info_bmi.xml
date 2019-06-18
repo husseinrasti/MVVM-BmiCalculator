@@ -19,6 +19,7 @@
         android:fontFamily="sans-serif"
         android:padding="10dp"
         android:text="@string/msg_add"
+        android:textColor="@color/gray_dark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/age"
             android:inputType="number"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,6 +66,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/weight"
             android:inputType="numberDecimal"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -100,6 +103,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/height"
             android:inputType="number"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -134,6 +138,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/inch"
             android:inputType="number"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>

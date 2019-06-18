@@ -186,7 +186,6 @@
             android:hint="@string/enter_inch"
             android:inputType="number"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="20sp"
             android:textStyle="normal"/>
 

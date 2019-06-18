@@ -20,6 +20,7 @@ import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
 import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
+import ir.radicalcode.app.bmi.view.viewmodel.SharedPrefViewModel;
 
 
 public class IntroFinalFragment extends Fragment {
@@ -33,12 +34,16 @@ public class IntroFinalFragment extends Fragment {
 
     private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
+    private SharedPrefViewModel sharedPrefViewModel;
 
     @Override
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
         factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
         bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
+
+        factoryViewModel = Injection.provideSharedPrefViewModelFactory( getActivity() );
+        sharedPrefViewModel = ViewModelProviders.of( this , factoryViewModel ).get( SharedPrefViewModel.class );
     }
 
     @Nullable
@@ -49,6 +54,8 @@ public class IntroFinalFragment extends Fragment {
 
         Font.getInstance( getContext() ).yekan( txtResultBmi );
         Font.getInstance( getContext() ).yekan( txtTitleResultBmi );
+
+        sharedPrefViewModel.setStateFirstStart( true );
 
         return view;
     }

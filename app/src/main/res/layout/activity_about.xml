@@ -7,15 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.AboutActivity">
 
-    <!--<include-->
-    <!--android:id="@+id/toolbar"-->
-    <!--layout="@layout/toolbar"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintTop_toTopOf="parent"/>-->
-
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="128dp"
@@ -31,6 +22,8 @@
         android:id="@+id/txtAppFa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="@string/txt_about_app_fa"
@@ -44,6 +37,8 @@
         android:id="@+id/txtAppEn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/txt_about_app_en"
@@ -58,6 +53,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/txt_about_author"
@@ -72,6 +69,8 @@
         android:id="@+id/txtFeedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:text="@string/txt_about_feedback"
@@ -85,6 +84,8 @@
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/txt_about_email"

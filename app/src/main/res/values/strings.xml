@@ -84,7 +84,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_toast_back">لطفا یک بار دیگر کلید برگشت را بزنید!</string>
-    <string name="msg_thanks"> از اینکه این برنامه را انتخاب کردید، سپاسگذاریم! </string>
+    <string name="msg_thanks"> از اینکه این برنامه را انتخاب کردید، سپاسگذارم. </string>
     <string name="str_sample_adapter_date">27/02/2019</string>
     <string name="str_sample_adapter_years">27 سال</string>
     <string name="str_sample_adapter_result">28.4</string>

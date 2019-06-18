@@ -2,7 +2,7 @@ package ir.radicalcode.app.bmi.view.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 import ir.radicalcode.app.bmi.data.entity.UserModel;
-import ir.radicalcode.app.bmi.data.local.UserDataSource;
+import ir.radicalcode.app.bmi.data.datasource.UserDataSource;
 
 public class UserViewModel extends ViewModel {
 

@@ -1,7 +1,7 @@
 package ir.radicalcode.app.bmi.view.viewmodel;
 
 import androidx.lifecycle.ViewModel;
-import ir.radicalcode.app.bmi.data.local.SharedPrefDataSource;
+import ir.radicalcode.app.bmi.data.datasource.SharedPrefDataSource;
 
 public class SharedPrefViewModel extends ViewModel {
 

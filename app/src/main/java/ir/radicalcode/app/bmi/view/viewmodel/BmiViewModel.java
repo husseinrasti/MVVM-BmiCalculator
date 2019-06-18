@@ -4,7 +4,7 @@ import java.util.List;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
-import ir.radicalcode.app.bmi.data.local.BmiDataSource;
+import ir.radicalcode.app.bmi.data.datasource.BmiDataSource;
 import ir.radicalcode.app.bmi.data.entity.BmiModel;
 
 public class BmiViewModel extends ViewModel {

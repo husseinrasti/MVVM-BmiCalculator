@@ -1,7 +1,8 @@
 package ir.radicalcode.app.bmi.data.local.db;
 
+import ir.radicalcode.app.bmi.data.dao.UserDao;
 import ir.radicalcode.app.bmi.data.entity.UserModel;
-import ir.radicalcode.app.bmi.data.local.UserDataSource;
+import ir.radicalcode.app.bmi.data.datasource.UserDataSource;
 
 public class LocalUserDataSource implements UserDataSource {
 

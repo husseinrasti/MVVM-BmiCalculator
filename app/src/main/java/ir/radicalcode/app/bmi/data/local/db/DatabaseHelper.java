@@ -5,6 +5,8 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import ir.radicalcode.app.bmi.data.dao.BmiDao;
+import ir.radicalcode.app.bmi.data.dao.UserDao;
 import ir.radicalcode.app.bmi.data.entity.BmiModel;
 import ir.radicalcode.app.bmi.data.entity.UserModel;
 

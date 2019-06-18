@@ -3,7 +3,7 @@ package ir.radicalcode.app.bmi.data.local.shared;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import ir.radicalcode.app.bmi.data.local.SharedPrefDataSource;
+import ir.radicalcode.app.bmi.data.datasource.SharedPrefDataSource;
 
 public class SharedPref implements SharedPrefDataSource {
 

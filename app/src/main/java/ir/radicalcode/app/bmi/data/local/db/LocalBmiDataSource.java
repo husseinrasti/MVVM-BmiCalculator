@@ -3,8 +3,9 @@ package ir.radicalcode.app.bmi.data.local.db;
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
+import ir.radicalcode.app.bmi.data.dao.BmiDao;
 import ir.radicalcode.app.bmi.data.entity.BmiModel;
-import ir.radicalcode.app.bmi.data.local.BmiDataSource;
+import ir.radicalcode.app.bmi.data.datasource.BmiDataSource;
 
 public class LocalBmiDataSource implements BmiDataSource {
 

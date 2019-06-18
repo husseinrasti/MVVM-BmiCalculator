@@ -2,8 +2,8 @@ package ir.radicalcode.app.bmi.root;
 
 import android.content.Context;
 
-import ir.radicalcode.app.bmi.data.local.BmiDataSource;
-import ir.radicalcode.app.bmi.data.local.UserDataSource;
+import ir.radicalcode.app.bmi.data.datasource.BmiDataSource;
+import ir.radicalcode.app.bmi.data.datasource.UserDataSource;
 import ir.radicalcode.app.bmi.data.local.db.DatabaseHelper;
 import ir.radicalcode.app.bmi.data.local.db.LocalBmiDataSource;
 import ir.radicalcode.app.bmi.data.local.db.LocalUserDataSource;

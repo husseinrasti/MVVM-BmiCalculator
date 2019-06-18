@@ -3,8 +3,12 @@ package ir.radicalcode.app.bmi.view.fragment;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -12,23 +16,36 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.lifecycle.ViewModelProviders;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ir.radicalcode.app.bmi.R;
+import ir.radicalcode.app.bmi.data.entity.UserModel;
+import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Config;
 import ir.radicalcode.app.bmi.utils.Utils;
 import ir.radicalcode.app.bmi.view.activity.AboutActivity;
+import ir.radicalcode.app.bmi.view.viewmodel.UserViewModel;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
 
     @SuppressLint("StaticFieldLeak")
     private static BottomSheetNavigationFragment INSTANCE;
 
+    private UserViewModel userViewModel;
+    private FactoryViewModel factoryViewModel;
+
+    @BindView(R.id.imgItemUserProfile)
+    ImageView imgItemUserProfile;
+    @BindView(R.id.txtItemUserProfile)
+    TextView txtItemUserProfile;
+
     public static BottomSheetNavigationFragment newInstance() {
         if ( INSTANCE == null ) {
             INSTANCE = new BottomSheetNavigationFragment();
         }
-
         return INSTANCE;
     }
 
@@ -58,6 +75,9 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
     public void setupDialog( Dialog dialog , int style ) {
         super.setupDialog( dialog , style );
 
+        factoryViewModel = Injection.provideUserViewModelFactory( getContext() );
+        userViewModel = ViewModelProviders.of( this , factoryViewModel ).get( UserViewModel.class );
+
         //Get the content View
         View contentView = View.inflate( getContext() , R.layout.bottom_navigation_drawer , null );
         dialog.setContentView( contentView );
@@ -72,6 +92,11 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         if ( behavior instanceof BottomSheetBehavior ) {
             ( ( BottomSheetBehavior ) behavior ).setBottomSheetCallback( mBottomSheetBehaviorCallback );
         }
+
+        UserModel userModel = userViewModel.getUserModel();
+        Bitmap bitmap = BitmapFactory.decodeByteArray( userModel.getPicProfile() , 0 , userModel.getPicProfile().length );
+        imgItemUserProfile.setImageBitmap( bitmap );
+        txtItemUserProfile.setText( userModel.getName() );
     }
 
     @OnClick({ R.id.imgItemAbout , R.id.txtItemAbout ,

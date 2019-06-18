@@ -8,7 +8,7 @@ import ir.radicalcode.app.bmi.data.local.db.DatabaseHelper;
 import ir.radicalcode.app.bmi.data.local.db.LocalBmiDataSource;
 import ir.radicalcode.app.bmi.data.local.db.LocalUserDataSource;
 import ir.radicalcode.app.bmi.data.local.shared.SharedPref;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 public class Injection {
 
@@ -22,17 +22,17 @@ public class Injection {
         return new LocalUserDataSource( database.userDao() );
     }
 
-    public static ViewModelFactory provideBMIViewModelFactory( Context context ) {
+    public static FactoryViewModel provideBMIViewModelFactory( Context context ) {
         BmiDataSource dataSource = provideBMIDataSource( context );
-        return new ViewModelFactory( dataSource );
+        return new FactoryViewModel( dataSource );
     }
 
-    public static ViewModelFactory provideUserViewModelFactory( Context context ) {
+    public static FactoryViewModel provideUserViewModelFactory( Context context ) {
         UserDataSource dataSource = provideUserDataSource( context );
-        return new ViewModelFactory( dataSource );
+        return new FactoryViewModel( dataSource );
     }
 
-    public static ViewModelFactory provideSharedPrefViewModelFactory( Context context ) {
-        return new ViewModelFactory( SharedPref.getInstance( context ) );
+    public static FactoryViewModel provideSharedPrefViewModelFactory( Context context ) {
+        return new FactoryViewModel( SharedPref.getInstance( context ) );
     }
 }

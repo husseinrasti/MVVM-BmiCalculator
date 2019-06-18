@@ -21,7 +21,7 @@ import ir.radicalcode.app.bmi.view.adapter.BmiPagerAdapter;
 import ir.radicalcode.app.bmi.view.customviews.CustomViewPager;
 import ir.radicalcode.app.bmi.view.fragment.BottomSheetNavigationFragment;
 import ir.radicalcode.app.bmi.view.viewmodel.SharedPrefViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 
 public class StartupActivity extends AppCompatActivity {
@@ -87,8 +87,8 @@ public class StartupActivity extends AppCompatActivity {
     }
 
     private void checkIntro() {
-        ViewModelFactory viewModelFactory = Injection.provideSharedPrefViewModelFactory( this );
-        SharedPrefViewModel sharedPrefViewModel = ViewModelProviders.of( this , viewModelFactory ).get( SharedPrefViewModel.class );
+        FactoryViewModel factoryViewModel = Injection.provideSharedPrefViewModelFactory( this );
+        SharedPrefViewModel sharedPrefViewModel = ViewModelProviders.of( this , factoryViewModel ).get( SharedPrefViewModel.class );
         new Thread( () -> {
             boolean isFirstStart = sharedPrefViewModel.getStateFirstStart();
             if ( !isFirstStart ) {

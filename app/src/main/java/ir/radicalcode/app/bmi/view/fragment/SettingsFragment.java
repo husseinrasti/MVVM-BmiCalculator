@@ -14,11 +14,11 @@ import ir.radicalcode.app.bmi.R;
 import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Const;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 public class SettingsFragment extends Fragment {
 
-    private ViewModelFactory viewModelFactory;
+    private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
 
     public static SettingsFragment newInstance( int pageNo ) {
@@ -34,8 +34,8 @@ public class SettingsFragment extends Fragment {
         super.onCreate( savedInstanceState );
         assert getArguments() != null;
         int mPageNo = getArguments().getInt( Const.ARG_PAGE );
-        viewModelFactory = Injection.provideBMIViewModelFactory( getActivity() );
-        bmiViewModel = ViewModelProviders.of( this , viewModelFactory ).get( BmiViewModel.class );
+        factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
+        bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
     }
 
     @Override

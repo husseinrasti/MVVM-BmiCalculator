@@ -25,7 +25,7 @@ import ir.radicalcode.app.bmi.utils.Const;
 import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.view.customviews.GaugeView;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 
 public class HomeFragment extends Fragment {
@@ -58,8 +58,8 @@ public class HomeFragment extends Fragment {
         super.onCreate( savedInstanceState );
         int mPageNo = Objects.requireNonNull( getArguments() ).getInt( Const.ARG_PAGE );
 
-        ViewModelFactory viewModelFactory = Injection.provideBMIViewModelFactory( getActivity() );
-        bmiViewModel = ViewModelProviders.of( this , viewModelFactory ).get( BmiViewModel.class );
+        FactoryViewModel factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
+        bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
     }
 
 

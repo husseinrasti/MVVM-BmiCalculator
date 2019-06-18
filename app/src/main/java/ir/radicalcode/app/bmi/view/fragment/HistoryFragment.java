@@ -19,7 +19,7 @@ import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Const;
 import ir.radicalcode.app.bmi.view.adapter.BmiDataAdapter;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 
 public class HistoryFragment extends Fragment {
@@ -29,7 +29,7 @@ public class HistoryFragment extends Fragment {
     @BindView(R.id.list)
     RecyclerView recyclerView;
 
-    private ViewModelFactory viewModelFactory;
+    private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
 
     public static HistoryFragment newInstance( int pageNo ) {
@@ -43,8 +43,8 @@ public class HistoryFragment extends Fragment {
     @Override
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
-        viewModelFactory = Injection.provideBMIViewModelFactory( getActivity() );
-        bmiViewModel = ViewModelProviders.of( this , viewModelFactory ).get( BmiViewModel.class );
+        factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
+        bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
     }
 
     @Override

@@ -19,7 +19,7 @@ import ir.radicalcode.app.bmi.R;
 import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 
 public class IntroFinalFragment extends Fragment {
@@ -31,14 +31,14 @@ public class IntroFinalFragment extends Fragment {
 
     private double bmiResult;
 
-    private ViewModelFactory viewModelFactory;
+    private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
 
     @Override
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
-        viewModelFactory = Injection.provideBMIViewModelFactory( getActivity() );
-        bmiViewModel = ViewModelProviders.of( this , viewModelFactory ).get( BmiViewModel.class );
+        factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
+        bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
     }
 
     @Nullable

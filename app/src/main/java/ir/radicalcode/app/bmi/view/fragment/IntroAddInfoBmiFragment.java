@@ -32,7 +32,7 @@ import ir.radicalcode.app.bmi.utils.BmiHelper;
 import ir.radicalcode.app.bmi.utils.Const;
 import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 public class IntroAddInfoBmiFragment extends Fragment implements ISlidePolicy {
 
@@ -65,7 +65,7 @@ public class IntroAddInfoBmiFragment extends Fragment implements ISlidePolicy {
     private int userAge;
     private String userSex;
 
-    private ViewModelFactory viewModelFactory;
+    private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
 
     private boolean doSave;
@@ -73,8 +73,8 @@ public class IntroAddInfoBmiFragment extends Fragment implements ISlidePolicy {
     @Override
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
-        viewModelFactory = Injection.provideBMIViewModelFactory( getActivity() );
-        bmiViewModel = ViewModelProviders.of( this , viewModelFactory ).get( BmiViewModel.class );
+        factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
+        bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
         setRetainInstance( true );
     }
 

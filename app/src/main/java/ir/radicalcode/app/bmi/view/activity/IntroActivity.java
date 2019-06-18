@@ -20,7 +20,7 @@ import ir.radicalcode.app.bmi.view.fragment.IntroUserProfileFragment;
 import ir.radicalcode.app.bmi.view.fragment.IntroFinalFragment;
 import ir.radicalcode.app.bmi.view.fragment.IntroStartFragment;
 import ir.radicalcode.app.bmi.view.viewmodel.SharedPrefViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 
 public class IntroActivity extends AppIntro2 {
@@ -33,8 +33,8 @@ public class IntroActivity extends AppIntro2 {
     protected void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
 
-        ViewModelFactory prefViewModelFactory = Injection.provideSharedPrefViewModelFactory( this );
-        sharedPrefViewModel = ViewModelProviders.of( this , prefViewModelFactory ).get( SharedPrefViewModel.class );
+        FactoryViewModel prefFactoryViewModel = Injection.provideSharedPrefViewModelFactory( this );
+        sharedPrefViewModel = ViewModelProviders.of( this , prefFactoryViewModel ).get( SharedPrefViewModel.class );
 
         getSupportActionBar().hide();
 

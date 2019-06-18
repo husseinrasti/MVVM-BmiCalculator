@@ -28,4 +28,7 @@ public class UserViewModel extends ViewModel {
         userDataSource.delete( model );
     }
 
+    public UserModel getUserModel() {
+        return userDataSource.getUser();
+    }
 }

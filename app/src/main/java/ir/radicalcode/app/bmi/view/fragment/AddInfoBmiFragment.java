@@ -33,7 +33,7 @@ import ir.radicalcode.app.bmi.utils.BmiHelper;
 import ir.radicalcode.app.bmi.utils.Const;
 import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 public class AddInfoBmiFragment extends Fragment implements TextWatcher {
 
@@ -62,7 +62,7 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
 
     private ViewPager viewPager;
 
-    private ViewModelFactory viewModelFactory;
+    private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
 
     public static AddInfoBmiFragment newInstance( int pageNo ) {
@@ -78,8 +78,8 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
         super.onCreate( savedInstanceState );
         assert getArguments() != null;
         int mPageNo = getArguments().getInt( Const.ARG_PAGE );
-        viewModelFactory = Injection.provideBMIViewModelFactory( getActivity() );
-        bmiViewModel = ViewModelProviders.of( this , viewModelFactory ).get( BmiViewModel.class );
+        factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
+        bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
         bmiViewModel.getLastRecord().observe( this , this::showUserValue );
     }
 

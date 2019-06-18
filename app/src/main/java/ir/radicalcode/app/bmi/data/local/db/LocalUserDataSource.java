@@ -30,4 +30,9 @@ public class LocalUserDataSource implements UserDataSource {
     public void update( UserModel model ) {
         userDao.update( model );
     }
+
+    @Override
+    public UserModel getUser() {
+        return userDao.getUser();
+    }
 }

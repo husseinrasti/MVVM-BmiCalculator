@@ -33,7 +33,7 @@ import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.view.activity.ImagePickerActivity;
 import ir.radicalcode.app.bmi.view.activity.IntroActivity;
 import ir.radicalcode.app.bmi.view.viewmodel.UserViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.ViewModelFactory;
+import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 public class IntroUserProfileFragment extends Fragment implements ISlidePolicy {
 
@@ -61,8 +61,8 @@ public class IntroUserProfileFragment extends Fragment implements ISlidePolicy {
     public void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
 
-        ViewModelFactory bmiViewModelFactory = Injection.provideUserViewModelFactory( mActivity );
-        userViewModel = ViewModelProviders.of( this , bmiViewModelFactory ).get( UserViewModel.class );
+        FactoryViewModel bmiFactoryViewModel = Injection.provideUserViewModelFactory( mActivity );
+        userViewModel = ViewModelProviders.of( this , bmiFactoryViewModel ).get( UserViewModel.class );
     }
 
     @Nullable

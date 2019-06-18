@@ -98,14 +98,16 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         }
 
         UserModel userModel = userViewModel.getUserModel();
-        byte[] image = userModel.getPicProfile();
-        if ( image != null ) {
-            Bitmap bitmap = BitmapFactory.decodeByteArray( image , 0 , image.length );
-            imgItemUserProfile.setImageBitmap( bitmap );
-        }
-        String name = userModel.getName();
-        if ( !name.equals( "" ) ) {
-            txtItemUserProfile.setText( name );
+        if ( userModel != null ) {
+            byte[] image = userModel.getPicProfile();
+            if ( image != null ) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray( image , 0 , image.length );
+                imgItemUserProfile.setImageBitmap( bitmap );
+            }
+            String name = userModel.getName();
+            if ( !name.equals( "" ) ) {
+                txtItemUserProfile.setText( name );
+            }
         }
 
         imgClose.setOnClickListener( v -> dismiss() );

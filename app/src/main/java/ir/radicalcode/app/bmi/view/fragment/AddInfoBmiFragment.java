@@ -53,8 +53,6 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
     RadioButton radioBtnFemale;
     @BindView(R.id.btnCalculate)
     Button btnCalculate;
-    @BindView(R.id.btnCancel)
-    Button btnCancel;
     @BindView(R.id.spinnerWeightUnit)
     Spinner spinnerWeightUnit;
     @BindView(R.id.spinnerHeightUnit)
@@ -64,6 +62,7 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
 
     private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
+    private boolean isInch;
 
     public static AddInfoBmiFragment newInstance( int pageNo ) {
         Bundle args = new Bundle();
@@ -98,8 +97,6 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
 
         btnCalculate.setOnClickListener( v -> calculate() );
 
-        btnCancel.setOnClickListener( v -> viewPager.setCurrentItem( 3 ) );
-
         Font font = Font.getInstance( getContext() );
         font.iranSansMedium( editAge );
         font.iranSansMedium( editHeight );
@@ -107,15 +104,14 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
         font.iranSansMedium( editWeight );
         font.yekan( txtInfo );
         font.yekan( btnCalculate );
-        font.yekan( btnCancel );
 
         return view;
     }
 
     private void calculate() {
-        double userWeight;
-        double userHeight;
-        double userHeightInch;
+        double userWeight = 0;
+        double userHeight = 0;
+        double userHeightInch = 0;
 
         BmiModel model = new BmiModel();
         model.setId( bmiViewModel.getLastId() + 1 );
@@ -125,14 +121,10 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
         model.setAge( Integer.parseInt( editAge.getText().toString() ) );
         model.setSex( ( radioBtnMale.isChecked() ) ? Const.KEY_MALE : ( radioBtnFemale.isChecked() ) ? Const.KEY_FEMALE : "" );
 
-        try {
-            userWeight = Double.valueOf( Objects.requireNonNull( editWeight.getText() ).toString() );
-            userHeight = Double.valueOf( Objects.requireNonNull( editHeight.getText() ).toString() );
-            userHeightInch = Double.valueOf( Objects.requireNonNull( editHeightInch.getText() ).toString() );
-        } catch ( NumberFormatException e ) {
-            userHeightInch = 0;
-            userHeight = 0;
-            userWeight = 0;
+        userWeight = Double.valueOf( editWeight.getText().toString() );
+        userHeight = Double.valueOf( editHeight.getText().toString() );
+        if ( isInch ) {
+            userHeightInch = Double.valueOf( editHeightInch.getText().toString() );
         }
 
         model.setHeight( userHeight );
@@ -146,21 +138,7 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
         int userHeightUnitPos = spinnerHeightUnit.getSelectedItemPosition();
         model.setHeightUnitPosition( userHeightUnitPos );
 
-//        float result = BmiHelper.getInstance().getBMIResult( userWeightUnitPos , userHeightUnitPos , userHeight , userWeight , userHeightInch );
-        float result = 0;
-
-        if ( userWeightUnitPos == 0 && userHeightUnitPos == 0 ) {
-            result = ( float ) BmiHelper.getInstance().getBMIKg( userHeight , userWeight );
-        } else if ( userWeightUnitPos == 1 && userHeightUnitPos == 0 ) {
-            result = ( float ) BmiHelper.getInstance().getBMIKg( userHeight , BmiHelper.getInstance().lbToKgConverter( userWeight ) );
-        } else if ( userWeightUnitPos == 0 && userHeightUnitPos == 1 ) {
-            result = ( float ) BmiHelper.getInstance().getBMIKg(
-                    BmiHelper.getInstance().feetInchToCmConverter( userHeight , userHeightInch ) , userWeight );
-        } else if ( userWeightUnitPos == 1 && userHeightUnitPos == 1 ) {
-            result = ( float ) BmiHelper.getInstance().getBMILb( userHeight , userHeightInch , userWeight );
-        }
-
-        model.setResult( result );
+        model.setResult( BmiHelper.getInstance().getBMIResult( userWeightUnitPos , userHeightUnitPos , userHeight , userWeight , userHeightInch ) );
         model.setStatus( 1 );
 
         bmiViewModel.insert( model );
@@ -228,8 +206,10 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
             public void onItemSelected( AdapterView parent , View view , int position , long id ) {
                 if ( position == 0 ) {
                     editHeightInch.setVisibility( View.GONE );
+                    isInch = false;
                 } else {
                     editHeightInch.setVisibility( View.VISIBLE );
+                    isInch = true;
                 }
             }
 

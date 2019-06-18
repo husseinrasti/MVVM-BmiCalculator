@@ -39,6 +39,8 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
 
     @BindView(R.id.imgItemUserProfile)
     ImageView imgItemUserProfile;
+    @BindView(R.id.imgClose)
+    ImageView imgClose;
     @BindView(R.id.txtItemUserProfile)
     TextView txtItemUserProfile;
 
@@ -63,9 +65,9 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         public void onSlide( @NonNull View bottomSheet , float slideOffset ) {
             //check the slide offset and change the visibility of close button
             if ( slideOffset > 0.5 ) {
-//                closeButton.setVisibility( View.VISIBLE );
+                imgClose.setVisibility( View.VISIBLE );
             } else {
-//                closeButton.setVisibility( View.GONE );
+                imgClose.setVisibility( View.GONE );
             }
         }
     };
@@ -97,6 +99,8 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         Bitmap bitmap = BitmapFactory.decodeByteArray( userModel.getPicProfile() , 0 , userModel.getPicProfile().length );
         imgItemUserProfile.setImageBitmap( bitmap );
         txtItemUserProfile.setText( userModel.getName() );
+
+        imgClose.setOnClickListener( v -> dismiss() );
     }
 
     @OnClick({ R.id.imgItemAbout , R.id.txtItemAbout ,

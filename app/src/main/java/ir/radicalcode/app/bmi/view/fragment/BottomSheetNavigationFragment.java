@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -26,6 +27,7 @@ import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Config;
 import ir.radicalcode.app.bmi.utils.Utils;
 import ir.radicalcode.app.bmi.view.activity.AboutActivity;
+import ir.radicalcode.app.bmi.view.activity.UserProfileActivity;
 import ir.radicalcode.app.bmi.view.viewmodel.UserViewModel;
 import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
@@ -38,7 +40,7 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
     private FactoryViewModel factoryViewModel;
 
     @BindView(R.id.imgItemUserProfile)
-    ImageView imgItemUserProfile;
+    CircularImageView imgItemUserProfile;
     @BindView(R.id.imgClose)
     ImageView imgClose;
     @BindView(R.id.txtItemUserProfile)
@@ -96,19 +98,31 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         }
 
         UserModel userModel = userViewModel.getUserModel();
-        Bitmap bitmap = BitmapFactory.decodeByteArray( userModel.getPicProfile() , 0 , userModel.getPicProfile().length );
-        imgItemUserProfile.setImageBitmap( bitmap );
-        txtItemUserProfile.setText( userModel.getName() );
+        byte[] image = userModel.getPicProfile();
+        if ( image != null ) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray( image , 0 , image.length );
+            imgItemUserProfile.setImageBitmap( bitmap );
+        }
+        String name = userModel.getName();
+        if ( !name.equals( "" ) ) {
+            txtItemUserProfile.setText( name );
+        }
 
         imgClose.setOnClickListener( v -> dismiss() );
     }
 
     @OnClick({ R.id.imgItemAbout , R.id.txtItemAbout ,
+            R.id.imgItemUserProfile , R.id.txtItemUserProfile ,
             R.id.imgItemShare , R.id.txtItemShare ,
             R.id.imgItemRate , R.id.txtItemRate ,
             R.id.imgItemApps , R.id.txtItemApps })
     public void onItemNavClick( View view ) {
         switch ( view.getId() ) {
+            case R.id.imgItemUserProfile:
+            case R.id.txtItemUserProfile: {
+                startActivity( new Intent( getActivity() , UserProfileActivity.class ) );
+                break;
+            }
             case R.id.imgItemAbout:
             case R.id.txtItemAbout: {
                 startActivity( new Intent( getActivity() , AboutActivity.class ) );

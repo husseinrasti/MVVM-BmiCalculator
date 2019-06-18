@@ -65,6 +65,7 @@
     <string name="height_policy_error">لطفا قد خود را وارد کنید.</string>
     <string name="name_policy_error">لطفا نام خود را وارد کنید.</string>
     <string name="pic_profile_policy_error">لطفا یک عکس انتخاب کنید.</string>
+    <string name="msg_profile_error">لطفا نام را وارد و یک عکس انتخاب کنید.</string>
 
     <string name="title_activity_main">خوش آمدید</string>
     <string name="roboto_light">Roboto Light</string>
@@ -112,5 +113,7 @@
     <string name="txt_about_author">طراح و برنامه نویس: حسین راستی</string>
     <string name="txt_about_email">ایمیل: teachcode.ir@gmail.com</string>
     <string name="txt_about_feedback">پذیرای نظرات و پیشنهادات شما دوستان عزیز می باشیم</string>
+    <string name="str_save">ثبت</string>
+    <string name="str_exit">خروج</string>
 
 </resources>

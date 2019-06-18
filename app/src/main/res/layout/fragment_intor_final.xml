@@ -43,14 +43,12 @@
 
     <TextView
         android:id="@+id/txtResultBmi"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/img_circle_result_final"
+        android:layout_height="@dimen/img_circle_result_final"
         android:background="@drawable/rounded_bg"
         android:gravity="center"
-        android:paddingBottom="60dp"
-        android:paddingTop="60dp"
         android:textColor="@color/white"
-        android:textSize="36sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

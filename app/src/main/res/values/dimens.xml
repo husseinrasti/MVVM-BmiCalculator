@@ -15,6 +15,7 @@
     <dimen name="edit_label">14sp</dimen>
     <dimen name="image_profile_width">90dp</dimen>
     <dimen name="ic_plus_width">28dp</dimen>
+    <dimen name="img_circle_result_final">128dp</dimen>
 
 
 </resources>

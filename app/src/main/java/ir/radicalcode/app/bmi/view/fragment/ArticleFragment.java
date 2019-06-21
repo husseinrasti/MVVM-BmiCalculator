@@ -16,17 +16,17 @@ import ir.radicalcode.app.bmi.utils.Const;
 import ir.radicalcode.app.bmi.view.viewmodel.BmiViewModel;
 import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
-public class SettingsFragment extends Fragment {
+public class ArticleFragment extends Fragment {
 
     private FactoryViewModel factoryViewModel;
     private BmiViewModel bmiViewModel;
 
-    public static SettingsFragment newInstance( int pageNo ) {
+    public static ArticleFragment newInstance( int pageNo ) {
         Bundle args = new Bundle();
         args.putInt( Const.ARG_PAGE , pageNo );
-        SettingsFragment settingsFragment = new SettingsFragment();
-        settingsFragment.setArguments( args );
-        return settingsFragment;
+        ArticleFragment articleFragment = new ArticleFragment();
+        articleFragment.setArguments( args );
+        return articleFragment;
     }
 
     @Override

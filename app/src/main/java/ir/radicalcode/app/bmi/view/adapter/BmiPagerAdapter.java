@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import ir.radicalcode.app.bmi.view.fragment.AddInfoBmiFragment;
 import ir.radicalcode.app.bmi.view.fragment.HistoryFragment;
 import ir.radicalcode.app.bmi.view.fragment.HomeFragment;
-import ir.radicalcode.app.bmi.view.fragment.SettingsFragment;
+import ir.radicalcode.app.bmi.view.fragment.ArticleFragment;
 
 public class BmiPagerAdapter extends FragmentPagerAdapter {
 
@@ -23,7 +23,7 @@ public class BmiPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem( int pos ) {
         switch ( pos ) {
             case 0:
-                return SettingsFragment.newInstance( 1 );
+                return ArticleFragment.newInstance( 1 );
             case 1:
                 return AddInfoBmiFragment.newInstance( 2 );
             case 2:

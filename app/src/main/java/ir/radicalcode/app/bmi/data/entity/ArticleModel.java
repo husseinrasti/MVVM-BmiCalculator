@@ -6,7 +6,7 @@ public class ArticleModel {
     private int id;
     private String title;
     private String desc;
-    private byte[] pic;
+    private int pic;
 
     public int getId() {
         return id;
@@ -32,11 +32,11 @@ public class ArticleModel {
         this.desc = desc;
     }
 
-    public byte[] getPic() {
+    public int getPic() {
         return pic;
     }
 
-    public void setPic( byte[] pic ) {
+    public void setPic( int pic ) {
         this.pic = pic;
     }
 }

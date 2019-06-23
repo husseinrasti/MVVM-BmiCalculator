@@ -1,7 +1,5 @@
 package ir.radicalcode.app.bmi.view.adapter;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,9 +37,7 @@ public class ArticleItemAdapter extends RecyclerView.Adapter<ArticleItemAdapter.
     @Override
     public void onBindViewHolder( @NonNull ArticleItemAdapter.ViewHolder holder , int position ) {
         holder.title.setText( list.get( position ).getTitle() );
-        byte[] pic = list.get( position ).getPic();
-        Bitmap bitmap = BitmapFactory.decodeByteArray( pic , 0 , pic.length );
-        holder.pic.setImageBitmap( bitmap );
+        holder.pic.setImageResource( list.get( position ).getPic() );
     }
 
     @Override

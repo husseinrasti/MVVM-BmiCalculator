@@ -33,6 +33,7 @@
         android:text="@string/txt_about_app_fa"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgLogo"/>
@@ -48,6 +49,7 @@
         android:text="@string/txt_about_app_en"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtAppFa"/>
@@ -64,6 +66,7 @@
         android:text="@string/txt_about_author"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtAppEn"/>
@@ -80,6 +83,7 @@
         android:text="@string/txt_about_feedback"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtAuthor"/>
@@ -95,6 +99,7 @@
         android:text="@string/txt_about_email"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtFeedback"/>

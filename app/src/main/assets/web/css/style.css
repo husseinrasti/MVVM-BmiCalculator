@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+body {
+    background-color: #ffffff;
+    direction: rtl;
+}
+
+img {
+    width: 100%;
+}
+
+.red {
+    color: #ff2100;
+}
+
+.green{
+    color: #4cae4c;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.list {
+    display: inline-block;
+}
+
+.green-box {
+    background-color: #4cae4c;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.green-table {
+    background-color: #4cae4c;
+    color: #ffffff;
+}
+
+.check {
+    list-style: initial !important;
+}
+
+.check li::before {
+    margin-left: 10px;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+ul {
+    line-height: 2.1;
+}
+
+ul::after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+    border: 1px solid #129793 !important;
+}

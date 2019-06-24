@@ -1,0 +1,16 @@
+@charset "utf-8";
+body {
+    font-family: IRANSans-web !important;
+}
+
+@font-face {
+    font-family: IRANSans-web;
+    src: url('IRANSans-web.eot');
+
+    src: url('IRANSans-web.eot?#iefix') format('eot'),
+        /* IE6–8 */ url('IRANSans-web.woff2') format('woff2'),
+        /* Chrome36+, Opera24+*/ url('IRANSans-web.woff') format('woff'),
+        /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('IRANSans-web.ttf') format('ttf');
+    font-weight: normal;
+}
+

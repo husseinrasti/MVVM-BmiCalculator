@@ -1,6 +1,9 @@
 package ir.radicalcode.app.bmi.view.fragment;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +35,8 @@ public class ArticleFragment extends Fragment implements OnArticleItemClickListe
     @BindView(R.id.recyclerArticle)
     RecyclerView recyclerArticle;
 
+    private float lastViewY;
+
     public static ArticleFragment newInstance( int pageNo ) {
         Bundle args = new Bundle();
         args.putInt( Const.ARG_PAGE , pageNo );
@@ -53,12 +58,23 @@ public class ArticleFragment extends Fragment implements OnArticleItemClickListe
         ButterKnife.bind( this , view );
 
         webView.loadUrl( DEFUALT_PAGE );
+        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ) {
+            webView.setOnScrollChangeListener( ( v , scrollX , scrollY , oldScrollX , oldScrollY ) -> {
+                if ( scrollY > oldScrollY ) {
+                    slideDown( recyclerArticle );
+                } else if ( ( scrollY +20 ) < oldScrollY ) {
+                    slideUp( recyclerArticle );
+                }
+            } );
+        }
 
         List<ArticleModel> list = makeArticleList();
         ArticleItemAdapter adapter = new ArticleItemAdapter( this , list );
 
         recyclerArticle.setLayoutManager( new LinearLayoutManager( getContext() , RecyclerView.HORIZONTAL , false ) );
         recyclerArticle.setAdapter( adapter );
+
+        lastViewY = recyclerArticle.getY();
 
         return view;
     }
@@ -82,5 +98,27 @@ public class ArticleFragment extends Fragment implements OnArticleItemClickListe
     @Override
     public void onItemClick( ArticleModel articleModel ) {
         webView.loadUrl( DIR_ASSETS_WEB + articleModel.getDesc() );
+    }
+
+    private void slideUp( View view ) {
+        view.setVisibility( View.VISIBLE );
+        view.animate()
+                .setDuration( 1000 )
+                .translationY( lastViewY )
+                .setListener( null );
+    }
+
+    private void slideDown( View view ) {
+        view.animate()
+                .setDuration( 1000 )
+                .translationY( 0 )
+                .setListener( new AnimatorListenerAdapter() {
+
+                    @Override
+                    public void onAnimationEnd( Animator animation ) {
+                        super.onAnimationEnd( animation );
+                        view.setVisibility( View.GONE );
+                    }
+                } );
     }
 }

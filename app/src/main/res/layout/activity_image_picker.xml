@@ -6,6 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/app_bar_top_padding"
-    tools:context=".view.activity.ImagePickerActivity">
+    tools:mContext=".view.activity.ImagePickerActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

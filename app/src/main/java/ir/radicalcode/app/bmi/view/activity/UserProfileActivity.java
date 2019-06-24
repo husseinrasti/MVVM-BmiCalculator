@@ -71,13 +71,17 @@ public class UserProfileActivity extends AppCompatActivity {
         unbinder = ButterKnife.bind( this );
 
         title.setText( getString( R.string.str_profile ) );
-        Font.getInstance( this ).yekan( title );
+
+        Font font = Font.getInstance( this );
+        font.yekan( title );
+        font.yekan( btnExit );
+        font.yekan( btnSave );
+        font.iranSans( edtNameUser );
+        font.iranSansLight( txtError );
 
         FactoryViewModel bmiFactoryViewModel = Injection.provideUserViewModelFactory( this );
         userViewModel = ViewModelProviders.of( this , bmiFactoryViewModel ).get( UserViewModel.class );
 
-        Font.getInstance( this ).iranSans( edtNameUser );
-        Font.getInstance( this ).iranSansLight( txtError );
 
         checkUser();
 

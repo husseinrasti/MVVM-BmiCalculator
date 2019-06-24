@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/back_selector"
     android:orientation="vertical"
-    tools:context=".view.activity.UserProfileActivity">
+    tools:mContext=".view.activity.UserProfileActivity">
 
     <include
         android:id="@+id/toolbar"

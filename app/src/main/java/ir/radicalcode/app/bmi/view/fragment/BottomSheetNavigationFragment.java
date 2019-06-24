@@ -25,6 +25,7 @@ import ir.radicalcode.app.bmi.R;
 import ir.radicalcode.app.bmi.data.entity.UserModel;
 import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Config;
+import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.utils.Utils;
 import ir.radicalcode.app.bmi.view.activity.AboutActivity;
 import ir.radicalcode.app.bmi.view.activity.UserProfileActivity;
@@ -111,6 +112,15 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         }
 
         imgClose.setOnClickListener( v -> dismiss() );
+
+        Font font = Font.getInstance( getContext() );
+        font.iranSans( txtItemUserProfile );
+        font.iranSans( contentView.findViewById( R.id.txtItemRate ) );
+        font.iranSans( contentView.findViewById( R.id.txtItemAbout ) );
+        font.iranSans( contentView.findViewById( R.id.txtItemShare ) );
+        font.iranSans( contentView.findViewById( R.id.txtItemApps ) );
+        font.yekan( contentView.findViewById( R.id.txtTitleApp ) );
+        font.yekan( contentView.findViewById( R.id.txtTitleDeveloper ) );
     }
 
     @OnClick({ R.id.imgItemAbout , R.id.txtItemAbout ,

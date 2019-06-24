@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:textDirection="rtl"
-    tools:context=".view.fragment.IntroStartFragment">
+    tools:mContext=".view.fragment.IntroStartFragment">
 
     <ImageView
         android:id="@+id/logo"

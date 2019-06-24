@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.StartupActivity">
+    tools:mContext=".view.activity.StartupActivity">
 
     <ir.radicalcode.app.bmi.view.customviews.CustomViewPager
         android:id="@+id/viewPager"

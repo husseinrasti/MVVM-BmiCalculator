@@ -1,5 +1,6 @@
 package ir.radicalcode.app.bmi.view.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +15,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ir.radicalcode.app.bmi.R;
 import ir.radicalcode.app.bmi.data.entity.ArticleModel;
+import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.view.interfaces.OnArticleItemClickListener;
 
 public class ArticleItemAdapter extends RecyclerView.Adapter<ArticleItemAdapter.ViewHolder> {
 
-    private static OnArticleItemClickListener listener;
-    private static List<ArticleModel> list;
+    private static OnArticleItemClickListener mListener;
+    private static List<ArticleModel> mList;
+    private static Context mContext;
 
-    public ArticleItemAdapter( OnArticleItemClickListener listener , List<ArticleModel> list ) {
-        this.listener = listener;
-        this.list = list;
+    public ArticleItemAdapter( Context context , OnArticleItemClickListener listener , List<ArticleModel> list ) {
+        mListener = listener;
+        mList = list;
+        mContext = context;
     }
 
     @NonNull
@@ -36,13 +40,13 @@ public class ArticleItemAdapter extends RecyclerView.Adapter<ArticleItemAdapter.
 
     @Override
     public void onBindViewHolder( @NonNull ArticleItemAdapter.ViewHolder holder , int position ) {
-        holder.title.setText( list.get( position ).getTitle() );
-        holder.pic.setImageResource( list.get( position ).getPic() );
+        holder.title.setText( mList.get( position ).getTitle() );
+        holder.pic.setImageResource( mList.get( position ).getPic() );
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return mList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -56,11 +60,13 @@ public class ArticleItemAdapter extends RecyclerView.Adapter<ArticleItemAdapter.
             super( itemView );
             ButterKnife.bind( this , itemView );
             itemView.setOnClickListener( this );
+
+            Font.getInstance( mContext ).iranSans( title );
         }
 
         @Override
         public void onClick( View v ) {
-            listener.onItemClick( list.get( getAdapterPosition() ) );
+            mListener.onItemClick( mList.get( getAdapterPosition() ) );
         }
     }
 }

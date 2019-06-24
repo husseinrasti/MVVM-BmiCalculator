@@ -21,6 +21,14 @@ public class AboutActivity extends AppCompatActivity {
     ConstraintLayout toolbar;
     @BindView(R.id.txtTitleToolbar)
     TextView title;
+    @BindView(R.id.txtAppFa)
+    TextView txtAppFa;
+    @BindView(R.id.txtAppEn)
+    TextView txtAppEn;
+    @BindView(R.id.txtAuthor)
+    TextView txtAuthor;
+    @BindView(R.id.txtFeedback)
+    TextView txtFeedback;
     @BindView(R.id.txtEmail)
     TextView email;
 
@@ -31,7 +39,14 @@ public class AboutActivity extends AppCompatActivity {
         unbinder = ButterKnife.bind( this );
 
         title.setText( getString( R.string.about ) );
-        Font.getInstance( this ).yekan( title );
+
+        Font font = Font.getInstance( this );
+        font.yekan( title );
+        font.iranSansBold( txtAuthor );
+        font.iranSansMedium( txtAppEn );
+        font.iranSansMedium( txtAppFa );
+        font.iranSans( txtFeedback );
+        font.iranSans( email );
 
         email.setText( Html.fromHtml( "<a href=\"mailto:teachcode.ir@gmail.com\">ارسال نظر و پیشنهاد</a>" ) );
         email.setMovementMethod( LinkMovementMethod.getInstance() );

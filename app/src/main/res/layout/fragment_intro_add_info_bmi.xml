@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:textDirection="rtl"
-    tools:context=".view.fragment.IntroAddInfoBmiFragment">
+    tools:mContext=".view.fragment.IntroAddInfoBmiFragment">
 
     <ImageView
         android:id="@+id/logo"

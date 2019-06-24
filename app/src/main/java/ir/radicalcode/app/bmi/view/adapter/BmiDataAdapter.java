@@ -18,14 +18,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ir.radicalcode.app.bmi.R;
 import ir.radicalcode.app.bmi.data.entity.BmiModel;
+import ir.radicalcode.app.bmi.utils.Font;
 
 public class BmiDataAdapter extends RecyclerView.Adapter<BmiDataAdapter.ViewHolder> {
 
     private List<BmiModel> list = new ArrayList<>();
-    protected static Context context;
+    private static Context mContext;
 
     public BmiDataAdapter( Context context ) {
-        this.context = context;
+        mContext = context;
     }
 
     public void setList( List<BmiModel> list ) {
@@ -70,12 +71,17 @@ public class BmiDataAdapter extends RecyclerView.Adapter<BmiDataAdapter.ViewHold
             super( itemView );
             ButterKnife.bind( this , itemView );
 
+            Font font = Font.getInstance( mContext );
+            font.iranSans( txtItemAdapterAge );
+            font.iranSans( txtItemAdapterBmiResult );
+            font.iranSans( txtItemAdapterDate );
+
             btnItemAdapterDelete.setOnClickListener( this );
         }
 
         @Override
         public void onClick( View v ) {
-            AlertDialog.Builder builder = new AlertDialog.Builder( context );
+            AlertDialog.Builder builder = new AlertDialog.Builder( mContext );
             builder.setTitle( "حذف" );
             builder.setMessage( "آیا قصد حذف کردن این نتیجه را دارید؟ " );
             builder.setNegativeButton( "خیر" ,
@@ -83,6 +89,7 @@ public class BmiDataAdapter extends RecyclerView.Adapter<BmiDataAdapter.ViewHold
                     } );
             builder.setPositiveButton( "بله" ,
                     ( dialog , which ) -> {
+
                     } );
             builder.show();
         }

@@ -26,8 +26,6 @@ import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
 
 public class StartupActivity extends AppCompatActivity {
 
-    //    @BindView(R.id.tab_layout)
-//    TabLayout mTabLayout;
     @BindView(R.id.bottomAppbar)
     BottomAppBar bottomAppBar;
     @BindView(R.id.fabAdd)

@@ -45,6 +45,6 @@ public class Const {
             R.drawable.img4 ,
             R.drawable.img5 ,
             R.drawable.img6 ,
-            R.drawable.img7
+            R.drawable.img7,
     };
 }

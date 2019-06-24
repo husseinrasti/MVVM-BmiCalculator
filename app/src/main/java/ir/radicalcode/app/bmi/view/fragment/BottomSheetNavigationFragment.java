@@ -67,7 +67,7 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
         @Override
         public void onSlide( @NonNull View bottomSheet , float slideOffset ) {
             //check the slide offset and change the visibility of close button
-            if ( slideOffset > 0.5 ) {
+            if ( slideOffset > 0.35 ) {
                 imgClose.setVisibility( View.VISIBLE );
             } else {
                 imgClose.setVisibility( View.GONE );

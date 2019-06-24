@@ -3,17 +3,34 @@
 body {
     background-color: #ffffff;
     direction: rtl;
+    line-height: 1.9 !important;
+    font-size: 13px !important;
+}
+
+h1, h2, h3, h3, h4, h5, h6 {
+    font-size: 15px !important;
+    font-weight: bold !important;
+    line-height: 1.9 !important;
 }
 
 img {
-    width: 100%;
+    width: 100% !important;
+    height: 200px !important;
+}
+
+article h1, h2, h3, h3, h4, h5, h6, p {
+    padding: 10px !important;
+}
+
+.table {
+    padding: 10px !important;
 }
 
 .red {
     color: #ff2100;
 }
 
-.green{
+.green {
     color: #4cae4c;
 }
 
@@ -65,4 +82,8 @@ ul::after {
 
 .table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
     border: 1px solid #129793 !important;
+}
+
+#imgW {
+    height: inherit !important;
 }

@@ -62,14 +62,14 @@ public class ArticleFragment extends Fragment implements OnArticleItemClickListe
             webView.setOnScrollChangeListener( ( v , scrollX , scrollY , oldScrollX , oldScrollY ) -> {
                 if ( scrollY > oldScrollY ) {
                     slideDown( recyclerArticle );
-                } else if ( ( scrollY +20 ) < oldScrollY ) {
+                } else if ( ( scrollY + 20 ) < oldScrollY ) {
                     slideUp( recyclerArticle );
                 }
             } );
         }
 
         List<ArticleModel> list = makeArticleList();
-        ArticleItemAdapter adapter = new ArticleItemAdapter( this , list );
+        ArticleItemAdapter adapter = new ArticleItemAdapter( getContext() , this , list );
 
         recyclerArticle.setLayoutManager( new LinearLayoutManager( getContext() , RecyclerView.HORIZONTAL , false ) );
         recyclerArticle.setAdapter( adapter );

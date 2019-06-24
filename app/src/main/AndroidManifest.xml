@@ -18,8 +18,7 @@
         <activity android:name=".view.activity.AboutActivity">
         </activity>
         <activity
-            android:name=".view.activity.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -29,8 +28,7 @@
         <activity android:name=".view.activity.StartupActivity"/>
         <activity android:name=".view.activity.IntroActivity"/>
         <activity
-            android:name=".view.activity.ThanksActivity"
-            android:theme="@style/ThanksTheme"/>
+            android:name=".view.activity.ThanksActivity"/>
         <activity android:name=".view.activity.ImagePickerActivity"/>
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"

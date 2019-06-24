@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/three_fragment"
-    style="@style/TopPaddingStyle"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,6 +9,10 @@
     android:background="@drawable/back_selector"
     android:orientation="vertical"
     tools:context=".view.activity.UserProfileActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <RelativeLayout
         android:id="@+id/containerImageProfile"

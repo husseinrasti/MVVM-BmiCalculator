@@ -95,6 +95,7 @@
     <string name="lbl_set_profile_photo">انتخاب تصویر از</string>
     <string name="lbl_take_camera_picture">دوربین</string>
     <string name="lbl_choose_from_gallery">گالری</string>
+    <string name="str_profile">پروفایل</string>
 
     <string name="str_menu_article">آموزش</string>
     <string name="str_menu_settings">تنظیمات</string>

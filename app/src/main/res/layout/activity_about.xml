@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.AboutActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="128dp"
@@ -16,7 +20,7 @@
         android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
     <TextView
         android:id="@+id/txtAppFa"

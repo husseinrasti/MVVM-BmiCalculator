@@ -24,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProviders;
 import butterknife.BindView;
@@ -42,6 +43,10 @@ public class UserProfileActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE = 2002;
     private static final int REQUEST_PERMISSIONS = 2001;
 
+    @BindView(R.id.toolbar)
+    ConstraintLayout toolbar;
+    @BindView(R.id.txtTitleToolbar)
+    TextView title;
     @BindView(R.id.edtNameUser)
     AppCompatEditText edtNameUser;
     @BindView(R.id.imgUserProfile)
@@ -64,6 +69,9 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_user_profile );
         unbinder = ButterKnife.bind( this );
+
+        title.setText( getString( R.string.str_profile ) );
+        Font.getInstance( this ).yekan( title );
 
         FactoryViewModel bmiFactoryViewModel = Injection.provideUserViewModelFactory( this );
         userViewModel = ViewModelProviders.of( this , bmiFactoryViewModel ).get( UserViewModel.class );

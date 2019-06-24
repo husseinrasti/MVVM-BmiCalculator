@@ -18,25 +18,25 @@
         <activity android:name=".view.activity.AboutActivity">
         </activity>
         <activity
-            android:name=".view.activity.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:name=".view.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity android:name=".view.activity.StartupActivity"/>
         <activity android:name=".view.activity.IntroActivity"/>
-        <activity
-            android:name=".view.activity.ThanksActivity"
-            android:theme="@style/ThanksTheme"/>
+        <activity android:name=".view.activity.ThanksActivity"/>
         <activity android:name=".view.activity.ImagePickerActivity"/>
+
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:label="@string/str_label_crop_activity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/EditorPhotoTheme"/>
+
         <activity android:name=".view.activity.UserProfileActivity"/>
 
         <provider

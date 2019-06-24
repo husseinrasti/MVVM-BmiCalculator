@@ -10,6 +10,10 @@
     android:orientation="vertical"
     tools:context=".view.activity.UserProfileActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
     <RelativeLayout
         android:id="@+id/containerImageProfile"
         android:layout_width="@dimen/img_dimen_lg"

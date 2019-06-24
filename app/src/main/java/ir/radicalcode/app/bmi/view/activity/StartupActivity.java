@@ -8,9 +8,6 @@ import android.widget.LinearLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.Objects;
-
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import butterknife.BindView;
@@ -20,14 +17,12 @@ import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.view.adapter.BmiPagerAdapter;
 import ir.radicalcode.app.bmi.view.customviews.CustomViewPager;
 import ir.radicalcode.app.bmi.view.fragment.BottomSheetNavigationFragment;
-import ir.radicalcode.app.bmi.view.viewmodel.SharedPrefViewModel;
 import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
+import ir.radicalcode.app.bmi.view.viewmodel.SharedPrefViewModel;
 
 
 public class StartupActivity extends AppCompatActivity {
 
-    //    @BindView(R.id.tab_layout)
-//    TabLayout mTabLayout;
     @BindView(R.id.bottomAppbar)
     BottomAppBar bottomAppBar;
     @BindView(R.id.fabAdd)
@@ -50,9 +45,6 @@ public class StartupActivity extends AppCompatActivity {
         ButterKnife.bind( this );
 
         checkIntro();
-
-        Objects.requireNonNull( getSupportActionBar() ).setDisplayOptions( ActionBar.DISPLAY_SHOW_CUSTOM );
-        getSupportActionBar().setCustomView( R.layout.toolbar );
 
         BmiPagerAdapter pagerAdapter = new BmiPagerAdapter( this , getSupportFragmentManager() );
 

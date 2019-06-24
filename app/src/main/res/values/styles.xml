@@ -25,6 +25,6 @@
     </style>
 
     <style name="EditorPhotoTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:paddingTop">@dimen/app_bar_top_padding</item>
+
     </style>
 </resources>

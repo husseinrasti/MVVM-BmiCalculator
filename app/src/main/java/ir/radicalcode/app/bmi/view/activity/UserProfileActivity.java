@@ -82,15 +82,12 @@ public class UserProfileActivity extends AppCompatActivity {
         FactoryViewModel bmiFactoryViewModel = Injection.provideUserViewModelFactory( this );
         userViewModel = ViewModelProviders.of( this , bmiFactoryViewModel ).get( UserViewModel.class );
 
-
-        checkUser();
-
         btnExit.setOnClickListener( v -> finish() );
         btnSave.setOnClickListener( v -> save() );
     }
 
     private void checkUser() {
-        UserModel userModel = userViewModel.getUserModel();
+        UserModel userModel = userViewModel.getUserModel().getValue();
         if ( userModel != null ) {
             byte[] image = userModel.getPicProfile();
             if ( image != null ) {

@@ -1,5 +1,6 @@
 package ir.radicalcode.app.bmi.view.viewmodel;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 import ir.radicalcode.app.bmi.data.entity.UserModel;
 import ir.radicalcode.app.bmi.data.datasource.UserDataSource;
@@ -28,7 +29,7 @@ public class UserViewModel extends ViewModel {
         userDataSource.delete( model );
     }
 
-    public UserModel getUserModel() {
+    public LiveData<UserModel> getUserModel() {
         return userDataSource.getUser();
     }
 }

@@ -1,5 +1,6 @@
 package ir.radicalcode.app.bmi.data.local.db;
 
+import androidx.lifecycle.LiveData;
 import ir.radicalcode.app.bmi.data.dao.UserDao;
 import ir.radicalcode.app.bmi.data.entity.UserModel;
 import ir.radicalcode.app.bmi.data.datasource.UserDataSource;
@@ -33,7 +34,7 @@ public class LocalUserDataSource implements UserDataSource {
     }
 
     @Override
-    public UserModel getUser() {
+    public LiveData<UserModel> getUser() {
         return userDao.getUser();
     }
 }

@@ -1,5 +1,6 @@
 package ir.radicalcode.app.bmi.data.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Query;
 import ir.radicalcode.app.bmi.data.entity.UserModel;
@@ -8,5 +9,5 @@ import ir.radicalcode.app.bmi.data.entity.UserModel;
 public interface UserDao extends BaseDao<UserModel> {
 
     @Query("SELECT * FROM user")
-    UserModel getUser();
+    LiveData<UserModel> getUser();
 }

@@ -22,15 +22,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ir.radicalcode.app.bmi.R;
-import ir.radicalcode.app.bmi.data.entity.UserModel;
 import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.utils.Config;
 import ir.radicalcode.app.bmi.utils.Font;
 import ir.radicalcode.app.bmi.utils.Utils;
 import ir.radicalcode.app.bmi.view.activity.AboutActivity;
 import ir.radicalcode.app.bmi.view.activity.UserProfileActivity;
-import ir.radicalcode.app.bmi.view.viewmodel.UserViewModel;
 import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
+import ir.radicalcode.app.bmi.view.viewmodel.UserViewModel;
 
 public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
 
@@ -98,18 +97,20 @@ public class BottomSheetNavigationFragment extends BottomSheetDialogFragment {
             ( ( BottomSheetBehavior ) behavior ).setBottomSheetCallback( mBottomSheetBehaviorCallback );
         }
 
-        UserModel userModel = userViewModel.getUserModel();
-        if ( userModel != null ) {
-            byte[] image = userModel.getPicProfile();
-            if ( image != null ) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray( image , 0 , image.length );
-                imgItemUserProfile.setImageBitmap( bitmap );
+        userViewModel.getUserModel().observe( this , userModel -> {
+            if ( userModel != null ) {
+                byte[] image = userModel.getPicProfile();
+                if ( image != null ) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray( image , 0 , image.length );
+                    imgItemUserProfile.setImageBitmap( bitmap );
+                }
+                String name = userModel.getName();
+                if ( !name.equals( "" ) ) {
+                    txtItemUserProfile.setText( name );
+                }
             }
-            String name = userModel.getName();
-            if ( !name.equals( "" ) ) {
-                txtItemUserProfile.setText( name );
-            }
-        }
+        } );
+
 
         imgClose.setOnClickListener( v -> dismiss() );
 

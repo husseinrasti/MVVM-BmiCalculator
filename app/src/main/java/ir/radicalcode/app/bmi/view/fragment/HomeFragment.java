@@ -60,6 +60,7 @@ public class HomeFragment extends Fragment {
 
         FactoryViewModel factoryViewModel = Injection.provideBMIViewModelFactory( getActivity() );
         bmiViewModel = ViewModelProviders.of( this , factoryViewModel ).get( BmiViewModel.class );
+        bmiViewModel.getLastRecord().observe( this , model -> showUserDetails( Objects.requireNonNull( model ) ) );
     }
 
 
@@ -67,8 +68,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView( @NonNull LayoutInflater inflater , ViewGroup container , Bundle savedInstanceState ) {
         View view = inflater.inflate( R.layout.fragment_home , container , false );
         ButterKnife.bind( this , view );
-
-        bmiViewModel.getLastRecord().observe( this , model -> showUserDetails( Objects.requireNonNull( model ) ) );
 
         Font font = Font.getInstance( getContext() );
         font.yekan( txtTitleInfoResult );

@@ -19,8 +19,6 @@ public class IntroActivity extends AppIntro2 {
     protected void onCreate( @Nullable Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
 
-        getSupportActionBar().hide();
-
         setGoBackLock( true );
         showSkipButton( false );
 

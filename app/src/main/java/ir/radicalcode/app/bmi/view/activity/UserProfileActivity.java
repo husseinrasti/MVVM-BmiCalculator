@@ -82,12 +82,13 @@ public class UserProfileActivity extends AppCompatActivity {
         FactoryViewModel bmiFactoryViewModel = Injection.provideUserViewModelFactory( this );
         userViewModel = ViewModelProviders.of( this , bmiFactoryViewModel ).get( UserViewModel.class );
 
+        userViewModel.getUserModel().observe( this , this::checkUser );
+
         btnExit.setOnClickListener( v -> finish() );
         btnSave.setOnClickListener( v -> save() );
     }
 
-    private void checkUser() {
-        UserModel userModel = userViewModel.getUserModel().getValue();
+    private void checkUser( UserModel userModel ) {
         if ( userModel != null ) {
             byte[] image = userModel.getPicProfile();
             if ( image != null ) {
@@ -172,16 +173,13 @@ public class UserProfileActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult( int requestCode , @NonNull String[] permissions , @NonNull int[] grantResults ) {
-        switch ( requestCode ) {
-            case REQUEST_PERMISSIONS: {
-                if ( grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ) {
-                    showImagePickerOptions();
-                } else {
-                    Snackbar.make( findViewById( android.R.id.content ) , R.string.runtime_permissions_txt ,
-                            Snackbar.LENGTH_LONG ).setAction( R.string.str_btn_snackbar_enable ,
-                            v -> ActivityCompat.requestPermissions( this , permissions , requestCode ) ).show();
-                }
-                break;
+        if ( requestCode == REQUEST_PERMISSIONS ) {
+            if ( grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ) {
+                showImagePickerOptions();
+            } else {
+                Snackbar.make( findViewById( android.R.id.content ) , R.string.runtime_permissions_txt ,
+                        Snackbar.LENGTH_LONG ).setAction( R.string.str_btn_snackbar_enable ,
+                        v -> ActivityCompat.requestPermissions( this , permissions , requestCode ) ).show();
             }
         }
     }

@@ -154,17 +154,17 @@ public class AddInfoBmiFragment extends Fragment implements TextWatcher {
     @SuppressLint("SetTextI18n")
     private void showUserValue( BmiModel model ) {
         if ( model != null ) {
-            double userWeight;
-            double userHeight;
-            double userHeightInch;
+            int userWeight;
+            int userHeight;
+            int userHeightInch;
 
             int userAge = model.getAge();
             String userSex = model.getSex();
-            userWeight = model.getWeight();
-            userHeight = model.getHeight();
+            userWeight = ( int ) model.getWeight();
+            userHeight = ( int ) model.getHeight();
             String userWeightUnit = model.getWeightUnit();
             String userHeightUnit = model.getHeightUnit();
-            userHeightInch = model.getHeightInch();
+            userHeightInch = ( int ) model.getHeightInch();
 
             editAge.setText( userAge + "" );
             editWeight.setText( userWeight + "" );

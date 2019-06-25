@@ -55,8 +55,6 @@ public class IntroFinalFragment extends Fragment {
         Font.getInstance( getContext() ).yekan( txtResultBmi );
         Font.getInstance( getContext() ).yekan( txtTitleResultBmi );
 
-        sharedPrefViewModel.setStateFirstStart( true );
-
         return view;
     }
 
@@ -67,6 +65,7 @@ public class IntroFinalFragment extends Fragment {
             bmiResult = bmiViewModel.getLastResult();
             if ( bmiResult != 0 ) {
                 animateTextView( 0 , ( int ) Math.round( bmiResult ) , txtResultBmi );
+                sharedPrefViewModel.setStateFirstStart( true );
             } else {
                 Toast.makeText( getContext() , "نتیجه یافت نشد یا ثبت نشده است" , Toast.LENGTH_LONG ).show();
             }

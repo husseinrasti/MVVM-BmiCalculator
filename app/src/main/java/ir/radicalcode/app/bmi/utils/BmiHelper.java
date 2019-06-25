@@ -1,6 +1,8 @@
 package ir.radicalcode.app.bmi.utils;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 public class BmiHelper {
 
@@ -20,8 +22,8 @@ public class BmiHelper {
      */
     private double format( double value ) {
         if ( value != 0 ) {
-            DecimalFormat df = new DecimalFormat( "###.#" );
-            return Double.valueOf( df.format( value ) );
+            DecimalFormat df = new DecimalFormat( "###.#" , DecimalFormatSymbols.getInstance( Locale.US ) );
+            return Double.parseDouble( df.format( value ) );
         } else {
             return -1;
         }

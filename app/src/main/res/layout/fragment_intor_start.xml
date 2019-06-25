@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/back_selector"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:paddingTop="48dp"
     android:textDirection="rtl"
     tools:mContext=".view.fragment.IntroStartFragment">
 

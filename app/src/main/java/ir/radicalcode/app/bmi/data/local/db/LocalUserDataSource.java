@@ -10,7 +10,7 @@ public class LocalUserDataSource implements UserDataSource {
     private UserDao userDao;
 
     public LocalUserDataSource( UserDao userDao ) {
-        this.userDao =  userDao;
+        this.userDao = userDao;
     }
 
     @Override
@@ -36,5 +36,15 @@ public class LocalUserDataSource implements UserDataSource {
     @Override
     public LiveData<UserModel> getUser() {
         return userDao.getUser();
+    }
+
+    @Override
+    public void updateImageProfile( int id , byte[] pic ) {
+        userDao.updateImageProfile( id , pic );
+    }
+
+    @Override
+    public void updateNameProfile( int id , String name ) {
+        userDao.updateNameProfile( id , name );
     }
 }

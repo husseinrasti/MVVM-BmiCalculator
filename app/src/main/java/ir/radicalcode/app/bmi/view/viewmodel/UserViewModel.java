@@ -32,4 +32,13 @@ public class UserViewModel extends ViewModel {
     public LiveData<UserModel> getUserModel() {
         return userDataSource.getUser();
     }
+
+    public void updateImageProfile( int id , byte[] pic ) {
+        userDataSource.updateImageProfile( id , pic );
+    }
+
+
+    public void updateNameProfile( int id , String name ) {
+        userDataSource.updateNameProfile( id , name );
+    }
 }

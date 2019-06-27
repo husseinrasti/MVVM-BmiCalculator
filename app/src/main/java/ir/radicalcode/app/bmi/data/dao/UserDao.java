@@ -8,7 +8,7 @@ import ir.radicalcode.app.bmi.data.entity.UserModel;
 @Dao
 public interface UserDao extends BaseDao<UserModel> {
 
-    @Query("SELECT * FROM user WHERE id=1")
+    @Query("SELECT * FROM user")
     LiveData<UserModel> getUser();
 
 

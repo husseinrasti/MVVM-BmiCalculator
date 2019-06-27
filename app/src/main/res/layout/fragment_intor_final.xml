@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/final_fragment"
+    style="@style/TopPaddingStyle"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +9,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/back_selector"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:paddingTop="48dp"
     android:textDirection="rtl"
     tools:mContext=".view.fragment.IntroFinalFragment">
 

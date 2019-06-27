@@ -9,16 +9,12 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ir.radicalcode.app.bmi.R;
-import ir.radicalcode.app.bmi.root.Injection;
 import ir.radicalcode.app.bmi.view.adapter.BmiPagerAdapter;
 import ir.radicalcode.app.bmi.view.customviews.CustomViewPager;
 import ir.radicalcode.app.bmi.view.fragment.BottomSheetNavigationFragment;
-import ir.radicalcode.app.bmi.view.viewmodel.FactoryViewModel;
-import ir.radicalcode.app.bmi.view.viewmodel.SharedPrefViewModel;
 
 
 public class StartupActivity extends AppCompatActivity {
@@ -43,8 +39,6 @@ public class StartupActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_startup );
         ButterKnife.bind( this );
-
-        checkIntro();
 
         BmiPagerAdapter pagerAdapter = new BmiPagerAdapter( this , getSupportFragmentManager() );
 
@@ -76,18 +70,5 @@ public class StartupActivity extends AppCompatActivity {
         }
         startActivity( new Intent( this , ThanksActivity.class ) );
         finish();
-    }
-
-    private void checkIntro() {
-        FactoryViewModel factoryViewModel = Injection.provideSharedPrefViewModelFactory( this );
-        SharedPrefViewModel sharedPrefViewModel = ViewModelProviders.of( this , factoryViewModel ).get( SharedPrefViewModel.class );
-        new Thread( () -> {
-            boolean isFirstStart = sharedPrefViewModel.getStateFirstStart();
-            if ( !isFirstStart ) {
-                Intent intro = new Intent( StartupActivity.this , IntroActivity.class );
-                startActivity( intro );
-                finish();
-            }
-        } ).start();
     }
 }

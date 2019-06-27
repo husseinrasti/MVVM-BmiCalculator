@@ -82,7 +82,7 @@
         android:background="@drawable/btn_calculate"
         android:text="@string/str_save"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnExit"
@@ -99,14 +99,14 @@
         android:background="@drawable/btn_calculate"
         android:text="@string/str_exit"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnSave"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/containerNameUser"/>
 
     <TextView
-        android:id="@+id/txtError"
+        android:id="@+id/txtErrorName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -114,7 +114,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="@string/msg_profile_error"
+        android:text="@string/msg_profile_error_name"
         android:textColor="@color/colorAccent"
         android:textSize="14sp"
         android:visibility="gone"
@@ -122,5 +122,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnSave"/>
+
+    <TextView
+        android:id="@+id/txtErrorPic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/msg_profile_error_pic"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtErrorName"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

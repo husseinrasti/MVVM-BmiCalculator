@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -55,14 +56,19 @@ public class UserProfileActivity extends AppCompatActivity {
     Button btnExit;
     @BindView(R.id.btnSave)
     Button btnSave;
-    @BindView(R.id.txtError)
-    TextView txtError;
+    @BindView(R.id.txtErrorName)
+    TextView txtErrorName;
+    @BindView(R.id.txtErrorPic)
+    TextView txtErrorPic;
 
     private UserViewModel userViewModel;
 
     private byte[] imageBytes;
 
     private Unbinder unbinder;
+    private boolean isNullUser;
+
+    private int idUser;
 
     @Override
     public void onCreate( @Nullable Bundle savedInstanceState ) {
@@ -77,7 +83,8 @@ public class UserProfileActivity extends AppCompatActivity {
         font.yekan( btnExit );
         font.yekan( btnSave );
         font.iranSans( edtNameUser );
-        font.iranSansLight( txtError );
+        font.iranSansLight( txtErrorName );
+        font.iranSansLight( txtErrorPic );
 
         FactoryViewModel bmiFactoryViewModel = Injection.provideUserViewModelFactory( this );
         userViewModel = ViewModelProviders.of( this , bmiFactoryViewModel ).get( UserViewModel.class );
@@ -90,6 +97,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void checkUser( UserModel userModel ) {
         if ( userModel != null ) {
+            idUser = userModel.getId();
             byte[] image = userModel.getPicProfile();
             if ( image != null ) {
                 Bitmap bitmap = BitmapFactory.decodeByteArray( image , 0 , image.length );
@@ -99,20 +107,34 @@ public class UserProfileActivity extends AppCompatActivity {
             if ( !name.equals( "" ) ) {
                 edtNameUser.setText( name );
             }
+        } else {
+            isNullUser = true;
         }
     }
 
     private void save() {
         String name = Objects.requireNonNull( edtNameUser.getText() ).toString();
-        if ( !name.equals( "" ) && imageBytes.length != 0 ) {
+        if ( isNullUser ) {
             UserModel model = new UserModel();
-            model.setName( name );
-            model.setPicProfile( imageBytes );
-            userViewModel.insertFirst( model );
-            finish();
+            if ( !name.equals( "" ) ) {
+                model.setName( name );
+            } else {
+                txtErrorName.setVisibility( View.VISIBLE );
+                return;
+            }
+
+            if ( imageBytes != null ) {
+                model.setPicProfile( imageBytes );
+            } else {
+                txtErrorPic.setVisibility( View.VISIBLE );
+                return;
+            }
+            userViewModel.insert( model );
         } else {
-            txtError.setVisibility( View.VISIBLE );
+            userViewModel.updateNameProfile( idUser , name );
         }
+
+        finish();
     }
 
     @OnClick({ R.id.imgUserProfile , R.id.imgPlus })
@@ -197,6 +219,12 @@ public class UserProfileActivity extends AppCompatActivity {
                     ByteArrayOutputStream blob = new ByteArrayOutputStream();
                     bitmap.compress( Bitmap.CompressFormat.PNG , 100 , blob );
                     imageBytes = blob.toByteArray();
+
+                    if ( !isNullUser ) {
+                        userViewModel.updateImageProfile( idUser , imageBytes );
+                        Toast.makeText( this , "عکس شما با موفقیت جایگزین شد!" , Toast.LENGTH_SHORT ).show();
+                    }
+
                 } catch ( Exception e ) {
                     e.printStackTrace();
                 }

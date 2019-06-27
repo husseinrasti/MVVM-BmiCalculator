@@ -3,6 +3,7 @@ package ir.radicalcode.app.bmi.utils;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Build;
 
 import java.util.Locale;
@@ -25,5 +26,11 @@ public class Utils {
         } else {
             return context.getResources().getConfiguration().locale;
         }
+    }
+
+    public static void setRTL( Context context ) {
+        Configuration configuration = context.getResources().getConfiguration();
+        configuration.setLayoutDirection( new Locale( "fa" ) );
+        context.getResources().updateConfiguration( configuration , context.getResources().getDisplayMetrics() );
     }
 }

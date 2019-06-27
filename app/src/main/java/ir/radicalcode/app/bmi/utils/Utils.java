@@ -28,9 +28,9 @@ public class Utils {
         }
     }
 
-    public static void setRTL( Context context ) {
+    public static void setSupportRTL( Context context ) {
         Configuration configuration = context.getResources().getConfiguration();
-        configuration.setLayoutDirection( new Locale( "fa" ) );
+        configuration.setLayoutDirection( new Locale( "en" ) );
         context.getResources().updateConfiguration( configuration , context.getResources().getDisplayMetrics() );
     }
 }
